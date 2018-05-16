@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Derpi spoiler blur
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  Blurs spoilered images, deblurs on hover
 // @author       Adrian Kryński
 // @source       https://github.com/
@@ -9,7 +9,7 @@
 // @grant        none
 // ==/UserScript==
 
-const hideTags = false;
+const hideTags = true;
 
 (function() {
     'use strict';
@@ -33,6 +33,7 @@ function enableHides() {
 
 function blurPics(spoilers) {
     let pics = document.getElementsByTagName('picture');
+    if (pics.length === 1 && pics[0].childNodes[0].id === "image-display") return;
     for(let i=0; i<pics.length; i++){
         let pic = pics[i];
         let img = pic.childNodes[0];
