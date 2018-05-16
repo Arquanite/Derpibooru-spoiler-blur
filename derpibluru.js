@@ -9,7 +9,7 @@
 // @grant        none
 // ==/UserScript==
 
-const hideTags = true;
+const hideTags = false;
 
 (function() {
     'use strict';
